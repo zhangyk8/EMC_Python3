@@ -84,9 +84,60 @@ plt.plot(small_m[:,0], small_m[:,1], "ro")
 ```
 
 #### Fast Mean Shift Algorithm
+For high-dimensional point data, the traditional mean shift algorithm requires thousands of steps of iteration in order to converge for each query point, which is computationally expansive. Thus, a fast version of the mean shift algorithm is proposed. Instead of running the mean shift algorithm until fully converged, we only run 20-50 mean-shift iterations for each query point and then apply the hierarchical clustering with **complete linkage** to group those iterated points into clusters. Here the distance metric is the usual Euclidean distance while we emphasize the choice of the complete linkage method. Since the complete linkage method tends to produce more compact clusters, the output modes of the fast mean shift algorithm will be more stable and valid in the subsequent denoising step. The Python function called `Fast_Mean_Shift` implements this process.
 
+`def Fast_Mean_Shift(data, query, h=None, cut=0.1, K=10, kernel="gaussian", max_iter=100, eps=1e-8, D_kernel=None)`
+- Inputs:
+  - data: Input data matrix (An m*d array of m data points in an d-dimensional space).
+  - query: The mesh points to which we apply the mean shift algorithm (An k*d array of k mesh points in an d-dimensional space).
+  - h: Smoothing parameter (Bandwidth for KDE)
+  - kernel: The kernel name for KDE. ('gaussian', 'epanechnikov', or others) If others, please define your own kernel function and its first derivative. Specify the derivative function in the parameter 'D_kernel'.
+  - max_iter: Maximal number of iteration for mean shift.
+  - eps: The tolerance (stopping criterion) for mean shift iteration. 
+  - D_kernel: The first derivative of the user-specified kernel function.
+  - cut -- The cut for hierarchical clustering (The distance threshold above which, clusters will not be merged).
+  - K -- The number of nearest neighbors for creating a graph that captures the connectivity.
+- Output:
+  - A numpy array for mesh points after mean shift iteration (Same data format as 'query')
+
+Usage (Continued): 
+```bash
+small2 = Fast_Mean_Shift(data=small_D, query=small_D, h=None, cut=0.1, K=10, kernel="gaussian", max_iter=20, eps=1e-7)
+```
+
+### EMC Object
+Finally, we encapsulate every procedure in the flowchart (**Fig 1**) into a Python object class called `EMC`. An `EMC` object has the following data attributes:
+- data: Input data matrix (An n*d array of n data points in an d-dimensional space).
+- h: The bandwidth for enhanced mode clustering.
+- label: The cluster labels for query points.
+- modes: Distinct local modes corresponding to each label
+- con_mat: The connectivity matrix
+- data_emb: The embedding coordinates for data points
+- modes_emb: The embedding coordinates for local modes
+- sc: The size of ordered clusters before denoising
+- n0: The size threshold for denoising tiny clusters
+- rho: The contrast parameter for visualization (Avoid overlapping)
+- noisy_label: The cluster labels for query points before denoising
+- noisy_modes: The local modes corresponding to each label before denoising
+
+As for how to use the `EMC` class, see the **Examples** section for details.
 
 ### Examples
+```bash
+# Generate 5-clusters in 10-Dim
+sim_data3 = Five_Cluster(N_c=200, N_f=100, dis_c=0.01, dis_f=0.005, d_add=7)
+# Create an EMC object
+EMC_ob = EMC(sim_data3)
+# Fitting the enhanced mode clustering (Set fast_ms=True if you want to use a fast mean shift algorithm via hierarchical clustering)
+EMC_ob.fit(h=None, fast_ms=False, rho=2, n0=None, cut=0.1)
+# Plot the sizes of clusters and Visualize the enhanced mode clustering
+EMC_ob.SC_plot(save_path='./figures/sc_plot.pdf')
+EMC_ob.plot(save_path='./figures/EMC_plot.pdf')
+```
+<p align="center">
+<img src="https://github.com/zhangyk8/EMC_Python3/blob/master/figures/sc_plot.jpg" style="zoom:60%" />
+ <B>Fig 2. </B>SC-plot for 5-clusters in 10-dim 
+ </p>
 
 
 ### Additional Reference
