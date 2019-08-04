@@ -140,14 +140,14 @@ EMC_ob.plot(save_path='./figures/EMC_plot.pdf')
  <B>Fig 2. </B>The first three coordinates of the 5-clusters data
 
 <p align="center">
-<img src="https://github.com/zhangyk8/EMC_Python3/blob/master/figures/sc_plot.jpg" style="zoom:70%" />
+<img src="https://github.com/zhangyk8/EMC_Python3/blob/master/figures/sc_plot.jpg" style="zoom:80%" />
  </p>
  <p align="center">
  <B>Fig 3. </B>SC-plot for 5-clusters in 10-dim 
  </p>
  
  <p align="center">
-<img src="https://github.com/zhangyk8/EMC_Python3/blob/master/figures/EMC_plot.jpg" style="zoom:70%" />
+<img src="https://github.com/zhangyk8/EMC_Python3/blob/master/figures/EMC_plot.jpg" style="zoom:80%" />
  </p>
  <p align="center">
  <B>Fig 4. </B>EMC visualization for 5-clusters in 10-dim 
