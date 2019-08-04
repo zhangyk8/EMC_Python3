@@ -15,7 +15,7 @@ Python3 Implementation of the Enhanced Mode Clustering
 We implement two versions of the mean shift algorithm to capture the local modes in any point dataset. For the standard version, we follow the derivation in Comaniciu and Meer (2002). However, our implementation generalizes their formulas and allows the diagonal bandwidth matrix to embrace non-identical entries. Specifically, the density estimator can be rewritten as
 $$\hat{f}_{h,K}(\mathbf{x}) = \frac{c_{k,d}}{nh^d} \sum_{i=1}^n K(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2),$$
 where
-<img src="https://latex.codecogs.com/svg.latex?\Large&space; \hat{f}_{h,K}(\mathbf{x}) = \frac{c_{k,d}}{nh^d} \sum_{i=1}^n K(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;(\mathbf{x})" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
 
 ### Additional Reference
 - Dorin Comaniciu and Peter Meer, "Mean shift: a robust approach toward feature space analysis," in _IEEE Transactions on Pattern Analysis and Machine Intelligence_, vol.24, no.5, pp.603-619, May 2002.
