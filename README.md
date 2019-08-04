@@ -13,7 +13,9 @@ Python3 Implementation of the Enhanced Mode Clustering
 
 ### Descriptions
 We implement two versions of the mean shift algorithm to capture the local modes in any point dataset. For the standard version, we follow the derivation in Comaniciu and Meer (2002). However, our implementation generalizes their formulas and allows the diagonal bandwidth matrix to embrace non-identical entries. Specifically, the density estimator can be rewritten as
+
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\hat{f}_{K}(\mathbf{x})=\frac{c_{K,d}}{n\det(H)}\sum_{i=1}^nK(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)," title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
 where 
 
 ### Additional Reference
