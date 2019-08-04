@@ -22,11 +22,13 @@ A helper function for generating high dimensional five clusters dataset (Example
     dis_c -- Standard deviation for generating each cluster point.
     dis_f -- Standard deviation for generating each filament point.
     d_add -- The added dimensions.
+    seed -- Seed for the random number generator.
 @ Return:
     A numpy array (dataset) with shape (n, 3+d_add), where (n=5*N_c+4*N_f) is the number of data points and (3+d_add) is the dimension.
 '''
-def Five_Cluster(N_c=200, N_f=100, dis_c=0.01, dis_f=0.005, d_add=7):
+def Five_Cluster(N_c=200, N_f=100, dis_c=0.01, dis_f=0.005, d_add=7, seed=123):
     # Setting up the means of clusters
+    np.random.seed(seed)
     mean = np.zeros((5, 3+d_add))
     data = np.empty([N_c*5+N_f*4, 3+d_add])
     
@@ -64,7 +66,7 @@ Mean shift algorithm using Python3
     kernel -- The kernel name for KDE. ('gaussian', 'epanechnikov', or others) If others, please define your own kernel function and its first derivative. Specify the derivative function in the parameter 'D_kernel'.
     max_iter -- Maximal number of iteration for mean shift.
     eps -- The tolerance (stopping criterion) for mean shift iteration. 
-    D_kernel: The first derivative of the user-specified kernel function.
+    D_kernel -- The first derivative of the user-specified kernel function.
 @ Return:
     A numpy array for mesh points after mean shift iteration (Same data format as 'query')
 '''

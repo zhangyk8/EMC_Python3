@@ -6,11 +6,7 @@ Last edit: August 3, 2019
 
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from scipy.spatial.distance import pdist, squareform
-from sklearn.neighbors import kneighbors_graph
-from sklearn.cluster import AgglomerativeClustering
-import pandas as pd
+from scipy.spatial.distance import pdist
 from sklearn.manifold import MDS
 from collections import Counter
 from EMC_fun import Mean_Shift, Fast_Mean_Shift, Unique_Modes, Soft_Mode_Clustering, Cluster_Connectivity
