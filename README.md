@@ -29,7 +29,7 @@ where
 
 The gradient of the density estimator can be obtained as
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\nabla\hat{f}_{K}(\mathbf{x})=\frac{2c_{K,d}}{n\det(H)}\sum_{i=1}^nH^{-1}(\mathbf{x}_i-\mathbf{x})g(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)\\=\frac{2c_{K,d}}{n\det(H)}\left[\sum_{i=1}^ng(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)\right]\left[\frac{\sum_{i=1}^nH^{-1}\mathbf{x}_ig(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)}{\sum_{i=1}^ng(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)}-H^{-1}\mathbf{x}\right]," />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\nabla\hat{f}_{K}(\mathbf{x})=\frac{2c_{K,d}}{n\det(H)}\sum_{i=1}^nH^{-T}(\mathbf{x}_i-\mathbf{x})H^{-1}g(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)\\=\frac{2c_{K,d}}{n\det(H)}\left[\sum_{i=1}^ng(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)\right]\left[\frac{\sum_{i=1}^nH^{-T}\mathbf{x}_iH^{-1}g(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)}{\sum_{i=1}^ng(||H^{-1}(\mathbf{x}-\mathbf{x}_i)||^2)}-H^{-T}\mathbf{x}H^{-1}\right]," />
 
 where <img src="https://latex.codecogs.com/svg.latex?\Large&space;g(x)=-k'(x)" />.
 
