@@ -2,7 +2,7 @@
 Python3 Implementation of the Enhanced Mode Clustering
 
 - Paper reference: Yen-Chi Chen, Christopher R. Genovese, and Larry Wasserman. "[A comprehensive approach to mode clustering](https://projecteuclid.org/euclid.ejs/1455715961)." Electronic Journal of Statistics 10.1 (2016): 210-241.
-- We provide a Python3 implementation for all the main functions of the enhanced mode clustering. For the original R implementation, please check [https://github.com/yenchic/EMC](https://github.com/yenchic/EMC).
+- We provide a Python3 implementation of all the main functions of the enhanced mode clustering. For the original R implementation, please check [https://github.com/yenchic/EMC](https://github.com/yenchic/EMC).
 - **EMC_fun.py**: the script that contains all the main functions for the mean shift algorithm and the enhanced mode clustering (EMC), including a functional implementation of the EMC.
 - **EMC_class.py**: the script that contains the implementation of a Python class `EMC`.
 - **Examples.py**: the script that provides some examples of applying the enhanced mode clustering.
